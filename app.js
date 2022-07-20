@@ -1,17 +1,38 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-console.log(inquirer);
 
-// const generatePage  = require('./src/page-template')
-
-// const pageHTML =generatePage (readme)
-// FileSystem.writeFile('./readme.md', pageHTML, err  => {
-//     if (err) throw err;
-// });
-
-// console.log('ReadMe complete! Check out ReadMe.md to see the output!')
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is your name?'
+        }
+
+    ]);
+};
+const promptUser = () => {
+    return inquirer.prompt([
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is your name?'
+      },
+      {
+        type: 'input',
+        name: 'github',
+        message: 'Enter your GitHub Username'
+      },
+      {
+        type: 'input',
+        name: 'about',
+        message: 'Provide some information about yourself:'
+      }
+    ]);
+  };
+  
+promptUser().then(answers => console.log(answers));
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
