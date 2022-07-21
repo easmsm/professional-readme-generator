@@ -1,13 +1,11 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const nodemon = require('nodemon')
+const markdown = require('readmegen/page-template.js');
+const fs = require('fs');
+
 
 // TODO: Create an array of questions for user input
-// const questions = () => {
-//     return inquirer.prompt([
-       
-//     ]);
-// };
+
 const promptUser = () => {
     return inquirer.prompt([
       {
@@ -55,26 +53,29 @@ const promptUser = () => {
         name: 'github',
         message: 'Please provide your GitHub username'
     },
+    
     //src for license section https://www.youtube.com/watch?v=OT63ATGrs5I
     {
         type: 'list',
         name: 'license',
-        message: 'Please license',
+        message: 'Please provide the license for this project',
         choices: ['MIT', 'ISC', 'GNUPLv3'],
-        // filter(val) {
-        //     return val.toLowerCase();
-        // }
     }
   ]);
  };
 
-promptUser().then(answers => console.log(answers));
+ inquirer.prompt(questions).then((answers) => {
+    console.log(mark);
+  });
+
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// function writeToFile('ReadMe.md', mark) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    fs.writeFile('ReadMe.md', mark);
+}
 
 // Function call to initialize app
 init();
