@@ -1,5 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const nodemon = require('nodemon')
 
 // TODO: Create an array of questions for user input
 // const questions = () => {
@@ -53,9 +54,19 @@ const promptUser = () => {
         type: 'input',
         name: 'github',
         message: 'Please provide your GitHub username'
+    },
+    //src for license section https://www.youtube.com/watch?v=OT63ATGrs5I
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Please license',
+        choices: ['MIT', 'ISC', 'GNUPLv3'],
+        // filter(val) {
+        //     return val.toLowerCase();
+        // }
     }
-    ]);
-  };
+  ]);
+ };
 
 promptUser().then(answers => console.log(answers));
 
