@@ -1,12 +1,12 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const markdown = require('readmegen/page-template.js');
+const markdown = require('./utils/generateMarkdown.js');
 const fs = require('fs');
 
 
 // TODO: Create an array of questions for user input
 
-const promptUser = () => {
+const questions = () => {
     return inquirer.prompt([
       {
         type: 'input',
@@ -71,11 +71,31 @@ const promptUser = () => {
 
 // TODO: Create a function to write README file
 // function writeToFile('ReadMe.md', mark) {}
+const writeFile = fileContent => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile('./dist/generated-README.md', fileContent, err => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve({
+        ok: true,
+        message: 'File has been generated at ./dist/generated-README.md'
+      });
+    });
+  });
+};
 
 // TODO: Create a function to initialize app
-function init() {
-    fs.writeFile('ReadMe.md', mark);
+//making a const to resolve issue
+const init = () => {
+
 }
 
-// Function call to initialize app
+
+
+
+
+// Call init
 init();
