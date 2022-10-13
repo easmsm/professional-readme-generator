@@ -53,9 +53,9 @@ function generateMarkdown(data) {
     const { title, description, installation, usage, contributing, tests, email, github } = data;
     
     return `
-        # ${title}
+# ${title}
         
-        ${renderLicenseBadge(data.license)}
+${renderLicenseBadge(data.license)}
 
 ## Table of Contents
 

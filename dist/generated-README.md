@@ -1,54 +1,53 @@
 
-        # ReadMe Generator
+        # Test
         
         
     ![badge](https://img.shields.io/badge/license-MIT-blue)
       
 
-    ## Table of Contents
+## Table of Contents
 
-        * [Title](#title)
-        * [Description](#description)
-        * [Installation](#installation)
-        * [Usage](#usage)
-        * [Contributing](#contributing)
-        * [Tests](#tests)
-        * [Contact](#contact)
+* [Title](#title)
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Contact](#contact)
 
-    ## Description
+## Description
 
-        This project uses Node, Inquirer, and JS to generate a professional ReadMe to use for your projects. 
-    
-    ## Installation
+Test
 
-        Clone this repo, and make sure that you have Inquirer installed. Start the Inquirer prompts using "node index.js"
-    
-    ## Usage
+## Installation
 
-        This project will simplify ReadMe generation, and help you to remember what should be in a professional ReadMe file. 
+Test
 
-    
+## Usage
+
+Test
+
+
     ## [License](#license)
     The application is covered under the following license:
     
     [MIT](https://choosealicense.com/licenses/MIT)
       
       
-    
-    ## Contributing
 
-        Emily Stewart Kukwa
-    
-    
-    ## Tests
+## Contributing
 
-        
+Test
 
-    ## Contact
 
-        If you have any questions, please contact me using the following links:
+## Tests
 
-        [GitHub](https://github.com/easmsm)
+Test
 
-        Email: easmsm@gmail.com
-    
+## Contact
+
+If you have any questions, please contact me using the following links:
+
+[GitHub](https://github.com/easmsm)
+
+Email: Test@test.com
