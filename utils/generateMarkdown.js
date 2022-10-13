@@ -95,7 +95,7 @@ function generateMarkdown(data) {
 
         If you have any questions, please contact me using the following links:
 
-        ${name}
+        ${yourname}
 
         [GitHub](https://github.com/${github})
 
