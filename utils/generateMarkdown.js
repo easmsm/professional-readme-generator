@@ -50,8 +50,10 @@ function renderLicenseBadge(license) {
 
 // add Title, description, installation, usage, contributing, tests, name, email, GitHub, license
 function generateMarkdown(data) {
+    const { title, description, installation, usage, contributing, tests, email, github } = data;
+    
     return `
-        # ${data.title}
+        # ${title}
         
         ${renderLicenseBadge(data.license)}
 
@@ -61,46 +63,45 @@ function generateMarkdown(data) {
         * [Description](#description)
         * [Installation](#installation)
         * [Usage](#usage)
-        ${renderLicenseTOC(data.license)}
         * [Contributing](#contributing)
         * [Tests](#tests)
         * [Name](#name)
         * [Contact](#contact)
 
-    ## [Title](#title)
+    ## Description
 
-        ${data.description}
+        ${description}
     
-    ## [Installation](#installation)
+    ## Installation
 
-        ${data.installation}
+        ${installation}
     
-    ## [Usage](#usage)
+    ## Usage
 
-        ${data.usage}
+        ${usage}
 
     ${renderLicenseSection(data.license)}
     
-    ## [Contributing](#contributing)
+    ## Contributing
 
-        ${data.contributing}
+        ${contributing}
     
     
-    ## [Tests](#tests)
+    ## Tests
 
-        ${data.tests}
+        ${tests}
 
-    ## [Contact](#contact)
+    ## Contact
 
         If you have any questions, please contact me using the following links:
 
-        ${data.name}
+        ${name}
 
-        [GitHub](https://github.com/${data.githubUsername})
+        [GitHub](https://github.com/${github})
 
-        [Email: ${data.email}](mailto:${data.email})
+        Email: ${email}
     `;
 }
 
 
-module.exports = generateMarkdown;
+module.exports = generateMarkdown
