@@ -1,13 +1,12 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const markdown = require('./utils/generateMarkdown.js');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 const fs = require('fs');
 
 
 // TODO: Create an array of questions for user input
 // want to come back and add validation
-const questions = () => {
-    return inquirer.prompt([
+const questions = [
       {
         type: 'input',
         name: 'title',
@@ -58,54 +57,28 @@ const questions = () => {
         name: 'license',
         message: 'Please provide the license for this project',
         choices: ['MIT', 'ISC', 'GNUPLv3'],
-    }
-  ]);
- };
+    },
 
- inquirer.prompt(questions).then((answers) => {
-    console.log(mark);
-  });
+  ];
 
+const promptUser = () => {
+  return inquirer.prompt(questions)
+}
+
+promptUser()
+.then(readmeAnswers => {
+   console.log(readmeAnswers)
+   const markdown = generateMarkdown(readmeAnswers)
+   writeToFile(markdown)
+})
 
 // TODO: Create a function to write README file
 // function writeToFile('ReadMe.md', mark) {}
-const writeFile = fileContent => {
-  return new Promise((resolve, reject) => {
-    fs.writeFile('./dist/generated-README.md', fileContent, err => {
+function writeToFile(markdown) {
+  fs.writeFile('generated-README.md', markdown, err => {
       if (err) {
-        reject(err);
-        return;
+        console.error(err);
       }
-
-      resolve({
-        ok: true,
-        message: 'File has been generated at ./dist/generated-README.md'
-      });
+      console.log("file written successfully")
     });
-  });
-};
-
-// TODO: Create a function to initialize app
-//making a const to resolve issue 
-const init = () => {
-  return inquirer.prompt(questions)
-  .then(readmeData => {
-    return readmeData;
-  })
-}
-
-// Call init, initialize app, just had init(); before
-init()
-.then(readmeData => {
-  console.log(readmeData);
-  return generatedMarkdown(readmeData);
-})
-.then(pageMD => {
-  return writeFile(pageMD);
-})
-.then(writeFileResponse => {
-  console.log(writeFileResponse.message);
-})
-.catch(err => {
-  console.log(err);
-})
+  }
