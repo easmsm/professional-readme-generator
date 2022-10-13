@@ -40,7 +40,7 @@ const questions = [
       },
       {
         type: 'input',
-        name: 'name',
+        name: 'yourname',
         message: 'What is your name?'
       },
       {
