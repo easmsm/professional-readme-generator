@@ -5,7 +5,7 @@ const fs = require('fs');
 
 
 // TODO: Create an array of questions for user input
-
+// want to come back and add validation
 const questions = () => {
     return inquirer.prompt([
       {
@@ -53,8 +53,6 @@ const questions = () => {
         name: 'github',
         message: 'Please provide your GitHub username'
     },
-    
-    //src for license section https://www.youtube.com/watch?v=OT63ATGrs5I
     {
         type: 'list',
         name: 'license',
@@ -88,14 +86,26 @@ const writeFile = fileContent => {
 };
 
 // TODO: Create a function to initialize app
-//making a const to resolve issue
+//making a const to resolve issue 
 const init = () => {
-
+  return inquirer.prompt(questions)
+  .then(readmeData => {
+    return readmeData;
+  })
 }
 
-
-
-
-
-// Call init
-init();
+// Call init, initialize app, just had init(); before
+init()
+.then(readmeData => {
+  console.log(readmeData);
+  return generatedMarkdown(readmeData);
+})
+.then(pageMD => {
+  return writeFile(pageMD);
+})
+.then(writeFileResponse => {
+  console.log(writeFileResponse.message);
+})
+.catch(err => {
+  console.log(err);
+})
